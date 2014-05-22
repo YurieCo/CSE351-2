@@ -1,0 +1,28 @@
+Problem 1
+There exist other valid expressions, but these were by far the most common
+    A.  K = 17      (x << 4) + x
+    B.  K = -7      x - (x << 3)
+    C.  K = 60      (x << 6) - (x << 2)
+    D.  K = -112    (x << 4) - (x << 7)
+
+Problem 2
+    A.  (float) x == (float) dx             True, rounding will be the same
+    B.  dx - dy == (double)(x - y)          False, under/overflow with int substraction
+    C.  (dx + dy) + dz == dx + (dy + dz)    True, associativity held because values stay within double's range of perfect precision
+    D.  (dx * dy) * dz == dx * (dy * dz)    False, associativity not held because values can exceed double's range of perfect precision
+    E.  dx / dx == dz / dz                  False, divide by zero
+
+Problem 3
+Many answers suggested precision differences between float and double. This was not what we were going for, but was a subset of the correct answer:
+    You should not attempt to compare floating-point values with == at all because of possible losses in accuracy due to limited precision during calculations. If you must, use some form of epsilon comparison: |f1 - f2| < e
+
+Problem 4
+    M       1.875
+    E       3
+    frac    0b1110000....... ("111" or ".111" were accepted with full points)
+
+Problem 5
+    A.  Symbol names (IE. function names)
+    B.  SHL and SAL for left-shift, SHR and SAR for right-shift. SH means logical shift, SA means arithmetic shift
+    C.  You had to note something interesting you discovered to get full points
+    D.  The symbols have been stripped from the files. This can be replicated using gcc's "-s" flag

@@ -1,0 +1,45 @@
+TODO(1): What happens if the second argument is set to 11 
+         instead? How about
+100? 1000? Make sure to set the 
+         second argument back to 10 when you are done 
+testing.    
+
+         Even if the second argument is too large (i.e. larger 
+         than the array really is), fillArray will write that 
+         many integers to memory, overwriting whatever exists 
+         beyond the bounds of the array. If the second argument 
+         is very
+ large, it may cause a segfault.
+
+
+TODO(2): We can actually use the address of the value declared 
+         here as if it were an array of a single element; 
+         why is this possible? 
+         
+An array in C is just a sequence of pointers to 
+         locations in memory, so in a
+very real sense, this 
+         value IS an array of a single element.
+
+TODO(3): What happens if we remove the free() statement below? 
+         
+
+The memory will never be freed, resulting in a memory 
+         leak - an area of memory
+which has already been 
+         allocated, but cannot be accessed by the running code. 
+         Particularly bad or persistent memory leaks can lead 
+         to a program running out of 
+memory entirely, so it's 
+         important to avoid this situation by freeing all 
+         the memory you malloc.
+Your code for TODO(4) should look something like this: 
+
+
+FourInts * ints = (FourInts *) malloc(sizeof(FourInts));
+fillArray((int *) ints, 4);
+assert(ints->a == 2);
+assert(ints->b == 5);
+assert(ints->c == 8);
+assert(ints->d == 11);
+free(ints);
